@@ -1,0 +1,33 @@
+/* Styling for All */
+.container-fluid{
+    margin:0;
+}
+
+/* Styling for Header */
+.el1:hover{
+    background-color: whitesmoke;
+    color: black !important;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* Styling for Main */
+#main-main{
+    margin: 0;
+
+}
+
+
+
+.main-content{
+    flex-wrap: nowrap;
+}
+
+
+/* Styling for Footer */
+#footer-footer{
+	background-color: #C0C0C0;
+	height: 60px;
+
+}
+
