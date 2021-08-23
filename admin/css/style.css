@@ -1,0 +1,64 @@
+/* Styling for All */
+.container-fluid{
+    margin:0;
+}
+
+/* Styling for Header */
+.el1:hover{
+    background-color: whitesmoke;
+    color: black !important;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.nav-link #submenu4 > li > a > span:hover{
+    color: white;
+}
+
+/* Styling for Main */
+#main-main{
+    margin: 0;
+
+}
+
+
+#demo-grid .txt-heading{
+    background-color: #D3F5B8;
+}
+#demo-grid table{
+    width:100%;
+    background-color:#F0F0F0;
+}
+
+#demo-grid table th{
+    text-align:left;
+}
+#demo-grid table td{
+    background-color:#FFFFFF;
+}
+.search {
+    margin: 10px 0px;
+}
+button#Filter {
+    padding: 5px 10px;
+    background: #586e75;
+    border: #485c61 1px solid;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+
+.main-content{
+    flex-wrap: nowrap;
+}
+
+
+
+/* Styling for Footer */
+#footer-footer{
+	background-color: #C0C0C0;
+	height: 60px;
+
+}
+
