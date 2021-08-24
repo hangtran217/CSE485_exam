@@ -57,7 +57,7 @@
                     <tr>
                         <td>Đường dẫn ảnh:</td>
                         <td>
-                            <input style="margin-top: 20px; width: 200px;" type="email" name="txtEmail" placeholder="/image/hangtl.png">
+                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtImage" placeholder="/image/hangtl.png">
                         </td>
                     </tr>
                     

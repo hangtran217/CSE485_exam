@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 23, 2021 lúc 04:49 PM
+-- Thời gian đã tạo: Th8 24, 2021 lúc 03:37 PM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -50,10 +50,10 @@ CREATE TABLE `tbl_coquan` (
   `id_coquan` int(10) NOT NULL,
   `tendonvi` varchar(255) NOT NULL,
   `diachi` varchar(255) NOT NULL,
-  `sdt` int(11) NOT NULL,
+  `sdt` varchar(15) NOT NULL,
   `email_coquan` varchar(255) NOT NULL,
   `website` varchar(255) NOT NULL,
-  `id_cha` int(10) NOT NULL
+  `id_cha` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -61,11 +61,9 @@ CREATE TABLE `tbl_coquan` (
 --
 
 INSERT INTO `tbl_coquan` (`id_coquan`, `tendonvi`, `diachi`, `sdt`, `email_coquan`, `website`, `id_cha`) VALUES
-(1, 'ĐHTL', '175 Tây Sơn', 23123, 'dhtl@tlu.edu.vn', 'dhtl.tlu.edu.vn', 1),
-(2, 'Khoa công nghệ thông tin', 'Nhà C, ĐHTL', 41231, 'cse@tlu.edu.vn', 'cse.tlu.edu.vn', 1),
-(3, 'BM Hệ thống thông tin', 'P205 Nhà C, ĐHTL', 4232, 'httt@tlu.edu.vn', '', 2),
-(4, 'Khoa Kinh tế và Quản lý', 'Nhà A2, ĐHTL', 3821237, 'fem@tlu.edu.vn', 'http://fem.tlu.edu.vn/', 1),
-(5, 'BM Kinh tế', 'P205 Nhà A2, ĐHTL', 9273812, 'femkt@tlu.edu.vn', 'http://femkt.tlu.edu.vn', 4);
+(1, 'ĐHTL', '175 Tây Sơn', '0231233465', 'dhtl@tlu.edu.vn', 'dhtl.tlu.edu.vn', NULL),
+(2, 'Khoa công nghệ thông tin', 'Nhà C, ĐHTL', '0412315674', 'cse@tlu.edu.vn', 'cse.tlu.edu.vn', 1),
+(3, 'BM Hệ thống thông tin', 'P205 Nhà C, ĐHTL', '0564232674', 'httt@tlu.edu.vn', 'https://httt.tlu.edu.vn', 2);
 
 -- --------------------------------------------------------
 
@@ -90,10 +88,10 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `hoten`, `image`, `dtcoquan`, `email`, `dtdidong`, `chucvu`, `id_coquan`) VALUES
 (1, 'Nguyễn Thanh Tùng', 'image/nguyenthanhtung.png', '032132', 'tungnt@tlu.edu.vn', '01171711', 'Trưởng khoa', 2),
-(13, 'Kiều Tuấn Dũng', 'image/KieuTuanDung.jpg', '0328726139', 'dungkt@tlu.edu.vn', '097238746', 'Giảng viên', 3),
+(13, 'Kiều Tuấn Dũng', 'image/KieuTuanDung.jpg', '0328726139', 'dungkt@tlu.edu.vn', '0972387900', 'Giảng viên', 3),
 (14, 'Đặng Thị Thu Hiền', 'image/DangThuHien.png', '028723249', 'hiendt@tlu.edu.vn', '097412346', 'Trưởng bộ môn', 3),
 (15, 'Trịnh Minh Thụ ', 'image/trinhminhthu.jpg', '0928723249', 'thutm@tlu.edu.vn', '0984332346', 'Hiệu trưởng', 1),
-(25, 'Trần Quốc Hưng', '/image/tranquochung.jpg', '092371928', 'hungtq@tlu.edu.vn', '092371283', 'Trưởng Bộ môn', 5);
+(38, 'Trần Thị An', '/image/antt.png', '0978364712', 'antt@tlu.edu.vn', '0983746100', 'Giảng viên', 2);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -128,13 +126,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_coquan`
 --
 ALTER TABLE `tbl_coquan`
-  MODIFY `id_coquan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_coquan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -150,7 +148,7 @@ ALTER TABLE `tbl_coquan`
 -- Các ràng buộc cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD CONSTRAINT `fk_coquan_canbo` FOREIGN KEY (`id_coquan`) REFERENCES `tbl_coquan` (`id_coquan`);
+  ADD CONSTRAINT `fk_coquan_canbo` FOREIGN KEY (`id_coquan`) REFERENCES `tbl_coquan` (`id_coquan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
