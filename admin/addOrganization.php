@@ -59,7 +59,7 @@
                     <tr>
                         <td></td>
                         <td>
-                            <input style="margin-top: 30px;" type="submit" name="btnAddUser" value="Lưu thông tin cán bộ" class="btn btn-success">
+                            <input style="margin-top: 30px;" type="submit" name="btnAddUser" value="Lưu thông tin đơn vị" class="btn btn-success">
                         </td>
                     </tr>
                     
@@ -84,7 +84,7 @@
                     // echo $sql;
                     // $result = mysqli_query($conn,$sql);
                     if(mysqli_query($conn,$sql)){
-                        header('location:'.SITEURL.'/admin/users-management.php');
+                        echo '<script>window.location.replace("organization-management.php")</script>';
                     }
                 }
 

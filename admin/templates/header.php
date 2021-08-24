@@ -15,14 +15,14 @@
   <body>
     <div class="container-fluid bg-dark">
         <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
-        <a href="http://localhost/Project/admin/index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <a href="./" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <h1 class="fs-2 text-white">Danh bạ Đại học Thủy Lợi</h1>
         </a>
 
         <ul class="nav ">
-            <li class="nav-item"><a href="http://localhost/exam/admin/index.php" class="nav-link active el1 text-white" aria-current="page">Trang chủ</a></li>
+            <li class="nav-item"><a href="./" class="nav-link active el1 text-white" aria-current="page">Trang chủ</a></li>
             
-            <li class="nav-item"><a href="http://localhost/exam/admin/logout.php" class="nav-link el1 text-white">Logout</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link el1 text-white">Logout</a></li>
         </ul>
         
         </header>
@@ -35,17 +35,17 @@
                 <div class="row flex-nowrap ">
                     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-3 bg-dark" style="margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                <a href="./" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                                     <span class="fs-5 d-none d-sm-inline">Dashboard</span>
                                 </a>
                                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                     <li class="nav-item">
-                                        <a href="http://localhost/exam/admin/" class="nav-link align-middle px-0">
+                                        <a href="./" class="nav-link align-middle px-0">
                                             <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Trang chủ</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="http://localhost/exam/admin/filter.php" class="nav-link align-middle px-0">
+                                        <a href="filter.php" class="nav-link align-middle px-0">
                                             <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Danh sách cán bộ theo đơn vị</span>
                                         </a>
                                     </li>

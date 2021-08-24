@@ -12,32 +12,7 @@
                             
                             <div align="center">
                                 <ul class="nav d-flex justify-content-center">
-                                    <li class="nav-item">
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tìm kiếm theo đơn vị
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                                    <?php
-                                                        //Lặp lấy dữ liệu và hiển thị ra bảng
-                                                        //Bước 02: Thực hiện Truy vấn
-                                                        $sql = "SELECT DISTINCT tendonvi FROM tbl_coquan";
-                                                        $result = mysqli_query($conn,$sql);
-                                                        while($row = mysqli_fetch_array($result)){
-                                                            ?>
-
-                                                        <li><a class="dropdown-item" href="index.php?donvi=<?php echo $row['tendonvi']; ?>"><i class=""></i><?php echo $row['tendonvi']; ?></a></li><br>
-
-                                                    <?php
-                                                        }
-
-                                                        
-                                                    ?>
-
-                                            </ul>
-                                        </div>
-
-                                    </li>
+                                    
                                     
                                     <li class="nav-item" style="margin-left: 30px; height: 20px;">
                                         <input style="height: 38px; width: 500px;" class="" type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm theo tên cán bộ" title="Type in a name">

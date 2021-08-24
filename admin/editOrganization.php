@@ -8,13 +8,13 @@
         exit;
     }
     include("templates/header.php");
-    ob_start();
+    //ob_start();
 ?>
 
 <!-- GET dữ liệu cán bộ theo id -->
     <?php 
         $id     = $_GET['myid'];
-        $sql    = "SELECT * from tbl_user where id_user={$id}";
+        $sql    = "SELECT * from tbl_coquan where id_coquan={$id}";
         $query  = mysqli_query($conn,$sql);
         $row    = mysqli_fetch_assoc($query);
     ?>
@@ -22,82 +22,87 @@
 
             <form method="POST" action="">
 
-            <h2 style="margin-bottom: 30px;">Sửa thông tin cán bộ</h2>
+            <h2 style="margin-bottom: 30px;">Sửa thông tin cơ quan</h2>
                 <table>
                     <tr>
-                        <td>Họ và tên:</td>
+                        <td>Tên đơn vị:</td>
                         <td>
-                            <input style=" width: 200px;"type="text" name="txtHoten" value="<?php echo $row['hoten']; ?>">
+                            <input style=" width: 200px;"type="text" name="txtOrganization" value="<?php echo $row['tendonvi']; ?>">
                         </td>
                     </tr>
+
                     <tr>
-                        <td>Mã đơn vị:</td>
+                        <td>Địa chỉ:</td>
                         <td>
-                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtIdDonvi" value="<?php echo $row['id_coquan']; ?>">
+                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtAddress" value="<?php echo $row['diachi']; ?>">
                         </td>
                     </tr>
+
                     <tr>
-                        <td>Chức vụ:</td>
+                        <td>SDT đơn vị:</td>
                         <td>
-                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtChucvu" value="<?php echo $row['chucvu']; ?>">
+                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtPhone" value="<?php echo $row['sdt']; ?>">
                         </td>
                     </tr>
+
                     <tr>
-                        <td style="width: 200px;">Số máy cơ quan:</td>
+                        <td style="width: 200px;">Email đơn vị:</td>
                         <td >
-                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtDTCoquan" value="<?php echo $row['dtcoquan']; ?>">
+                            <input style="margin-top: 20px; width: 200px;" type="email" name="txtEmail" value="<?php echo $row['email_coquan']; ?>">
                         </td>
                     </tr>
+
                     <tr>
-                        <td>Số máy di động:</td>
+                        <td>Website:</td>
                         <td>
-                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtDidong" value="<?php echo $row['dtdidong']; ?>">
+                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtWebsite" value="<?php echo $row['website']; ?>">
                         </td>
                     </tr>
+                    
                     <tr>
-                        <td>Email:</td>
+                        <td>ID trực thuộc:</td>
                         <td>
-                            <input style="margin-top: 20px; width: 200px;" type="email" name="txtEmail" value="<?php echo $row['email']; ?>">
+                            <input style="margin-top: 20px; width: 200px;" type="text" name="txtIdcha"  value="<?php echo $row['id_cha']; ?>">
                         </td>
                     </tr>
                     
                     <tr>
                         <td></td>
                         <td>
-                            <input style="margin-top: 30px;" type="submit" name="btnEditUser" value="Lưu thông tin cán bộ" class="btn btn-success">
+                            <input style="margin-top: 30px;" type="submit" name="btnEditOrganization" value="Lưu thông tin đơn vị" class="btn btn-success">
                         </td>
                     </tr>
                     
                 </table>
             </form>
             <?php
-
-                if(isset($_POST['btnAddUser'])){
-                    
-
-                    //Kiểm tra: Dữ liệu người dùng nhập có đang BỎ TRỐNG trường nào KO?
+                if(isset($_POST['btnEditOrganization'])){
+                    $txtOrganization    = $_POST['txtOrganization'];
+                    $txtAddress         = $_POST['txtAddress'];
+                    $txtPhone           = $_POST['txtPhone'];
+                    $txtEmail           = $_POST['txtEmail'];
+                    $txtWebsite         = $_POST['txtWebsite'];
+                    $txtIdcha           = $_POST['txtIdcha'];
+                   // alert("1");có đang BỎ TRỐNG trường nào KO?
                     //CSDL của chúng ta đã lưu Mật khẩu ở dạng THÔ
                     //Kiểm tra: Trước khi thêm Tài khoản, phải kiểm tra username và email này có tồn tại chưa?
                     //Nếu chưa tồn tại thì mới thêm;
+                    //Kiểm tra: Dữ liệu người dùng nhập 
                     //Bước 02: Thực hiện truy vấn
-                    $sql = "UPDATE tbl_user SET hoten = '".$_POST['txtHoten']."', id_coquan = '".$_POST['txtIdDonvi']."' chucvu = '".$_POST['txtChucvu']."', dtcoquan = '".$_POST['txtDTCoquan']."', email = '".$_POST['txtEmail']."', dtdidong = '".$_POST['txtDidong']."' 
-                            WHERE id_user = '$id'";
 
-                    // echo $sql;
-                    // $result = mysqli_query($conn,$sql);
-                    mysqli_close($conn);
-
-               
-                    
-                    
-                    
+                    $sql = "UPDATE tbl_coquan SET tendonvi = '$txtOrganization', diachi = '$txtAddress', sdt = '$txtPhone', email_coquan = '$txtEmail', website ='$txtWebsite', id_cha = '$txtIdcha'
+                            WHERE id_coquan = '$id'";
+                    if(mysqli_query($conn,$sql)){
+                        //echo '<script>alert("Incorrect username and/or password!")</script>';
+                         echo '<script>window.location.replace("organization-management.php")</script>';
+                        //header('location:../admin/users-management.php');
+                    }
                 }
-
             ?>
     </main>
 </div>
 <?php
     include("templates/footer.php");
-    ob_end_flush();
+    //ob_end_flush();
 ?>
    

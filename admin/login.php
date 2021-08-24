@@ -3,30 +3,42 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Login</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/login.css">
 	</head>
 	<body>
-		<div class="login">
-			<h1>Login</h1>
-			<form action="" method="post">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<input type="submit" value="Login" name="submit">
-				<ul class="nav">
-		            <li class="nav-item"><a href="http://localhost/exam/register.php" class="nav-link active" aria-current="page">Chưa có tài khoản. Đăng ký ngay!</a></li>
-		            <li class="nav-item"><a href="http://localhost/exam/forgotpassword.php" class="nav-link">Quên mật khẩu?</a></li>
-		        </ul>
-			</form>
 
-		</div>
+		<div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Form đăng nhập</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Tên đăng nhập:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Mật khẩu:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="col col form-group">
+                                <label for="remember-me" class="text-info"><span>Lưu thông tin tài khoản</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" style="margin-left: 40%;" value="Đăng nhập">
+                            </div>
+                            <div id="register-link" class="col col text-right">
+                                <a href="#" class="text-info">Chưa có tài khoản. Đăng ký ngay!</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
    <?php  
 		session_start();

@@ -1,9 +1,6 @@
 <?php
     // We need to use sessions, so you should always start sessions using the below code.
     include('connection.php');
-    include 'DBController.php';
-    $db_handle = new DBController();
-    $tendonviResult = $db_handle->runQuery("SELECT DISTINCT tendonvi FROM tbl_coquan ORDER BY tendonvi ASC");
     session_start();
     // If the user is not logged in redirect to the login page...
     if (!isset($_SESSION['loggedin'])) {
@@ -69,21 +66,23 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                                                     <?php
+                                                    
                                                         //Lặp lấy dữ liệu và hiển thị ra bảng
                                                         //Bước 02: Thực hiện Truy vấn
                                                         $sql = "SELECT DISTINCT tendonvi FROM tbl_coquan";
+                                                
                                                         $result = mysqli_query($conn,$sql);
                                                         while($row = mysqli_fetch_array($result)){
                                                             ?>
 
-                                                        <li id="myInput2" onkeyup="myFunction()"><a class="dropdown-item" href="index.php?donvi=<?php echo $row['tendonvi']; ?>"><i class=""></i><?php echo $row['tendonvi']; ?></a></li><br>
+                                                        <li id="myInput2" onchange="myFunction()"><a class="dropdown-item" href="index.php?donvi=<?php echo $row['tendonvi']; ?>"><i class=""></i><?php echo $row['tendonvi']; ?></a></li><br>
 
                                                     <?php
                                                         }
 
                                                         
                                                     ?>
-
+                                                    <li onchange="myFunction()"><a class="dropdown-item" href="index.php"><i class=""></i>Hiển thị tất cả đơn vị</a></li>
                                             </ul>
                                         </div>
 
@@ -123,7 +122,14 @@
                                                 <?php
                                                     //Lặp lấy dữ liệu và hiển thị ra bảng
                                                     //Bước 02: Thực hiện Truy vấn
+                                                    if (isset($_GET['donvi'])){
+                                                        $filter = $_GET['donvi'];
+                                                        
+                                                        $sql = "SELECT * FROM (tbl_user INNER JOIN tbl_coquan as a USING (id_coquan)) WHERE tendonvi LIKE '%$filter%'";
+                                                        }
+                                                        else {
                                                     $sql = "SELECT * FROM tbl_user,tbl_coquan where tbl_user.id_coquan = tbl_coquan.id_coquan";
+                                                }
                                                     $result = mysqli_query($conn,$sql);
                                                     if(mysqli_num_rows($result)>0){
                                                         $i=1;
@@ -152,26 +158,6 @@
                                                   tr = table.getElementsByTagName("tr");
                                                   for (i = 0; i < tr.length; i++) {
                                                     td = tr[i].getElementsByTagName("td")[2];
-                                                    if (td) {
-                                                      txtValue = td.textContent || td.innerText;
-                                                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                        tr[i].style.display = "";
-                                                      } else {
-                                                        tr[i].style.display = "none";
-                                                      }
-                                                    }       
-                                                  }
-                                                }
-                                            </script>
-                                            <script>
-                                                function myFunction2() {
-                                                  var input, filter, table, tr, td, i, txtValue;
-                                                  input = document.getElementById("myInput2");
-                                                  filter = input.value.toUpperCase();
-                                                  table = document.getElementById("myTable");
-                                                  tr = table.getElementsByTagName("tr");
-                                                  for (i = 0; i < tr.length; i++) {
-                                                    td = tr[i].getElementsByTagName("td")[4];
                                                     if (td) {
                                                       txtValue = td.textContent || td.innerText;
                                                       if (txtValue.toUpperCase().indexOf(filter) > -1) {

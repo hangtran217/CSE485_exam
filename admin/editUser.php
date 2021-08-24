@@ -71,12 +71,12 @@
             </form>
             <?php
                 if(isset($_POST['btnEditUser'])){
-                    $txtHoten   = $_POST['txtHoten'];
-                    $txtIdDonvi = $_POST['txtIdDonvi'];
-                    $txtChucvu   = $_POST['txtChucvu'];
-                    $txtDTCoquan = $_POST['txtDTCoquan'];
-                    $txtDidong   = $_POST['txtDidong'];
-                    $txtEmail = $_POST['txtEmail'];
+                    $txtHoten       = $_POST['txtHoten'];
+                    $txtIdDonvi     = $_POST['txtIdDonvi'];
+                    $txtChucvu      = $_POST['txtChucvu'];
+                    $txtDTCoquan    = $_POST['txtDTCoquan'];
+                    $txtDidong      = $_POST['txtDidong'];
+                    $txtEmail       = $_POST['txtEmail'];
                    // alert("1");có đang BỎ TRỐNG trường nào KO?
                     //CSDL của chúng ta đã lưu Mật khẩu ở dạng THÔ
                     //Kiểm tra: Trước khi thêm Tài khoản, phải kiểm tra username và email này có tồn tại chưa?

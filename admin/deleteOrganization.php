@@ -8,7 +8,7 @@
 		$sql= "DELETE FROM tbl_coquan WHERE id_coquan={$id}";
 		$query = mysqli_query($conn,$sql) or die('sql error'.mysqli_error($conn));
 		$_SESSION['success'] = 'Xóa thành công đơn vị';
-		header('location:../admin/organization-management.php');
+		echo '<script>window.location.replace("organization-management.php")</script>';
 	
 
 ?>

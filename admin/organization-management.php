@@ -91,8 +91,8 @@
                                                     <td style="width: 70px; overflow: hidden; text-align: center;"><?php echo $row['sdt']; ?></td>
                                                     <td style="width: 130px; overflow: hidden; text-align: center;"><?php echo $row['email_coquan']; ?></td>
                                                     <td style="width: 130px; overflow: hidden; text-align: center;"> <?php echo $row['website']; ?></td>
-                                                    <td style="width: 30px; overflow: hidden; text-align: center;"><a href="editUser.php?myid=<?php echo $row['id_coquan']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                                    <td style="width: 30px; overflow: hidden; text-align: center;"><a href="deleteUser.php?myid=<?php echo $row['id_coquan']; ?>"><i class="bi bi-archive-fill"></i></a></td>
+                                                    <td style="width: 30px; overflow: hidden; text-align: center;"><a href="editOrganization.php?myid=<?php echo $row['id_coquan']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                                    <td style="width: 30px; overflow: hidden; text-align: center;"><a href="deleteOrganization.php?myid=<?php echo $row['id_coquan']; ?>"><i class="bi bi-archive-fill"></i></a></td>
                                                 <?php
                                                     $i++;
                                                     }

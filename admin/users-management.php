@@ -1,9 +1,6 @@
 <?php
     // We need to use sessions, so you should always start sessions using the below code.
     include('connection.php');
-    include 'DBController.php';
-    $db_handle = new DBController();
-    $tendonviResult = $db_handle->runQuery("SELECT DISTINCT tendonvi FROM tbl_coquan ORDER BY tendonvi ASC");
     session_start();
     // If the user is not logged in redirect to the login page...
     if (!isset($_SESSION['loggedin'])) {
@@ -45,45 +42,7 @@
                             <div align="center">
                                 <ul class="nav d-flex justify-content-center">
                                     <li class="nav-item">
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tìm kiếm theo đơn vị
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                                    <?php
-                                                        //Lặp lấy dữ liệu và hiển thị ra bảng
-                                                        //Bước 02: Thực hiện Truy vấn
-                                                        $sql = "SELECT DISTINCT tendonvi FROM tbl_coquan";
-                                                        $result = mysqli_query($conn,$sql);
-                                                        //while($row = mysqli_fetch_array($result)){
-                                                            ?>
-
-                                                        <li>
-
-
-                                                            <select id="Place" name="tendonvi[]" class="form-select" aria-label="Default select example" style="height: 60px; width: 800px;">
-                            <option selected>Chọn đơn vị</option>
-                            <?php
-                                if (! empty($tendonviResult)) {
-                                    foreach ($tendonviResult as $key => $value) {
-                                        echo '<option value="' . $tendonviResult[$key]['tendonvi'] . '">' . $tendonviResult[$key]['tendonvi'] . '</option>';
-                                    }
-                                }
-                            ?>
-                        </select>
-
-                                                            <!-- <a class="dropdown-item" href="index.php?donvi=<?php echo $row['tendonvi']; ?>"><i class=""></i><?php echo $row['tendonvi']; ?>
-                                                    </a> -->
-                                                        </li><br>
-
-                                                    <?php
-                                                        //}
-
-                                                        
-                                                    ?>
-
-                                            </ul>
-                                        </div>
+                                        
 
                                     </li>
                                     
